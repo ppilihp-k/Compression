@@ -67,8 +67,8 @@ namespace compression
 		uint64_t start = i / 64;
 		uint64_t end = (i + length - 1) / 64;
 		uint64_t shift = i % 64;
-		//uint64_t mask = length == 64 ? ~cast64(0) : ((cast64(1) << length) - 1);
-		uint64_t mask = masks[maskOffset[length]];
+		uint64_t mask = length == 64 ? ~cast64(0) : ((cast64(1) << length) - 1);
+		//uint64_t mask = masks[maskOffset[length]];
 		
 		if(start == end)
 		{
