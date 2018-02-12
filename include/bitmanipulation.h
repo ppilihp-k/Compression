@@ -1,9 +1,7 @@
 #ifndef __BITMANIPULATION_H__
 #define __BITMANIPULATION_H__
 
-
 #include "includes.h"
-#include "utils.h"
 
 namespace compression
 {	
