@@ -53,6 +53,19 @@ namespace compression
 		}
 	};
 	
+	static bool isSorted(const ArrayType& a)
+	{
+		uint64_t n = a.numberOfElements;
+		for(uint64_t i = 0;i < n - 1;i++)
+		{
+			if(a[i] > a[i+1])
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	/**
 		Description: 	Simple compression for a sorted sequence of integers. Saves 1 bit per integer.
 		Parameter:		start 		- The start-index for the compression.
@@ -67,7 +80,7 @@ namespace compression
 	*/	
 	static bool compress(ArrayType& a, uint64_t start, uint64_t end)
 	{
-		if(a.isCompressed())return false;
+		if(a.isCompressed() || !isSorted(a))return false;
 		
 		uint64_t tau = a.tau;
 		uint64_t numberOfElements = a.numberOfElements;
