@@ -1,0 +1,2 @@
+"C:/Program Files (x86)/GCC/bin/ar.exe" qc libdatastructures.a  CMakeFiles/datastructures.dir/array.cpp.obj
+"C:/Program Files (x86)/GCC/bin/ranlib.exe" libdatastructures.a

@@ -3,7 +3,7 @@
 
 #include "includes.h"
 
-namespace compression
+namespace ds
 {	
 	 /**
 		NO TESTED
@@ -63,7 +63,7 @@ namespace compression
 	 */		
 	static uint64_t getBlock64(uint64_t i, uint8_t length, const uint64_t* array)
 	{
-		__builtin_assume_aligned(array, 32);
+		__builtin_assume_aligned(array, 16);
 		uint64_t start = i / 64;
 		uint64_t end = (i + length - 1) / 64;
 		uint64_t shift = i % 64;
@@ -81,6 +81,26 @@ namespace compression
 			return (hi | lo) & mask; 
 		}
 	}
+
+	static uint32_t getBlock32(uint32_t i, uint8_t length, const uint32_t* array)
+	{
+		__builtin_assume_aligned(array, 16);
+		uint32_t start = i / 32;
+		uint32_t end = (i + length - 1) / 32;
+		uint32_t shift = i % 32;
+		uint32_t mask = length == 32 ? ~cast32(0) : ((cast32(1) << length) - 1);
+		
+		if(start == end)
+		{
+			return (array[start] >> shift) & mask; 
+		}
+		else 
+		{
+			uint32_t hi = array[end] << (32 - shift);
+			uint32_t lo = array[start] >> shift;
+			return (hi | lo) & mask; 
+		}
+	}
 	
 	 /**
 		Description: 	Returns the array's values [i, ... , i + length - 1] in a 128 bit integer.
@@ -95,6 +115,7 @@ namespace compression
 	 */			
 	static __uint128_t getBlock(uint64_t i, uint64_t length, const uint64_t* array)
 	{
+		__builtin_assume_aligned(array, 16);
 		if(length <= 64)
 		{
 			return getBlock64(i, length, array);
@@ -121,12 +142,13 @@ namespace compression
 	*/			
 	static void setBlock64(uint64_t i, uint64_t length, uint64_t block, uint64_t* array)
 	{
-		__builtin_assume_aligned(array, 32);
+		__builtin_assume_aligned(array, 16);
 	
 		uint64_t index_start = i / 64;
 		uint64_t index_end = (i + length - 1) / 64;
 		uint64_t shift = i % 64;
 		
+		uint64_t mask;
 		if(length == 64)
 		{
 			mask = ~cast64(0);
@@ -151,6 +173,39 @@ namespace compression
 		}
 	}
 	
+	static void setBlock32(uint32_t i, uint32_t length, uint32_t block, uint32_t* array)
+	{
+		__builtin_assume_aligned(array, 16);
+	
+		uint32_t index_start = i / 32;
+		uint32_t index_end = (i + length - 1) / 32;
+		uint32_t shift = i % 32;
+		
+		uint32_t mask;
+		if(length == 32)
+		{
+			mask = ~cast32(0);
+		}
+		else 
+		{
+			mask = (cast32(1) << length) - 1;
+			block &= mask;
+		}
+		
+		if(index_start == index_end)
+		{
+			array[index_start] &= (~(mask << shift));
+			array[index_start] |= (block << shift); 
+		}
+		else 
+		{
+			array[index_start] &= ~(mask << shift);
+			array[index_end] &= ~(mask >> (32 - shift));
+			array[index_start] |= block << shift;	
+			array[index_end] |= block >> (32 - shift);					
+		}
+	}
+	
 	/**
 		Description: 	Sets the "array's" values [i, ... , i + length - 1] to "block".
 		Parameter:		i 		- The first bit of the desired block.
@@ -165,7 +220,7 @@ namespace compression
 	*/				
 	static void setBlock(uint64_t i, uint64_t length, __uint128_t block, uint64_t* array)
 	{
-		__builtin_assume_aligned(array, 32);
+		__builtin_assume_aligned(array, 16);
 		uint64_t block64 = block;
 		if(length > 64)
 		{

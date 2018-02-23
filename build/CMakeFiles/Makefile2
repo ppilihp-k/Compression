@@ -60,6 +60,61 @@ CMAKE_SOURCE_DIR = C:/Users/PhilippKroll/Desktop/compression
 CMAKE_BINARY_DIR = C:/Users/PhilippKroll/Desktop/compression/build
 
 #=============================================================================
+# Directory level rules for directory source
+
+# Convenience name for "all" pass in the directory.
+source/all: source/CMakeFiles/datastructures.dir/all
+
+.PHONY : source/all
+
+# Convenience name for "clean" pass in the directory.
+source/clean: source/CMakeFiles/datastructures.dir/clean
+
+.PHONY : source/clean
+
+# Convenience name for "preinstall" pass in the directory.
+source/preinstall:
+
+.PHONY : source/preinstall
+
+#=============================================================================
+# Target rules for target source/CMakeFiles/datastructures.dir
+
+# All Build rule for target.
+source/CMakeFiles/datastructures.dir/all:
+	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/depend
+	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles --progress-num=1,2 "Built target datastructures"
+.PHONY : source/CMakeFiles/datastructures.dir/all
+
+# Include target in all.
+all: source/CMakeFiles/datastructures.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+source/CMakeFiles/datastructures.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/datastructures.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles 0
+.PHONY : source/CMakeFiles/datastructures.dir/rule
+
+# Convenience name for target.
+datastructures: source/CMakeFiles/datastructures.dir/rule
+
+.PHONY : datastructures
+
+# clean rule for target.
+source/CMakeFiles/datastructures.dir/clean:
+	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/clean
+.PHONY : source/CMakeFiles/datastructures.dir/clean
+
+# clean rule for target.
+clean: source/CMakeFiles/datastructures.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

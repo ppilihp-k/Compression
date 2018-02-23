@@ -49,23 +49,23 @@ CMAKE_SOURCE_DIR = C:/Users/PhilippKroll/Desktop/compression
 CMAKE_BINARY_DIR = C:/Users/PhilippKroll/Desktop/compression/build
 
 # Include any dependencies generated for this target.
-include CMakeFiles/compression.dir/depend.make
+include CMakeFiles/big.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/compression.dir/progress.make
+include CMakeFiles/big.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/compression.dir/flags.make
+include CMakeFiles/big.dir/flags.make
 
-CMakeFiles/compression.dir/requires:
+CMakeFiles/big.dir/requires:
 
-.PHONY : CMakeFiles/compression.dir/requires
+.PHONY : CMakeFiles/big.dir/requires
 
-CMakeFiles/compression.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/compression.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/compression.dir/clean
+CMakeFiles/big.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/big.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/big.dir/clean
 
-CMakeFiles/compression.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/compression.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/compression.dir/depend
+CMakeFiles/big.dir/depend:
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/big.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/big.dir/depend
 

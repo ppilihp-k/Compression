@@ -1,2 +1,2 @@
-# Empty dependencies file for compression.
+# Empty dependencies file for datastructures.
 # This may be replaced when dependencies are built.

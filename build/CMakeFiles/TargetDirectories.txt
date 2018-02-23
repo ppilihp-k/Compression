@@ -1,2 +1,5 @@
 C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/edit_cache.dir
 C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/rebuild_cache.dir
+C:/Users/PhilippKroll/Desktop/compression/build/source/CMakeFiles/datastructures.dir
+C:/Users/PhilippKroll/Desktop/compression/build/source/CMakeFiles/edit_cache.dir
+C:/Users/PhilippKroll/Desktop/compression/build/source/CMakeFiles/rebuild_cache.dir

@@ -3,7 +3,7 @@
 
 #include "includes.h"
 
-namespace compression
+namespace ds
 {
 	/**
 		Represents an array type of struct, which can store a given amount of values, where each element uses "tau" bits of space.
@@ -26,7 +26,7 @@ namespace compression
 			{
 				lengthOfArray = 1;
 			}
-			array = (uint64_t*)aligned_alloc(32, lengthOfArray * sizeof(uint64_t));
+			array = (uint64_t*)aligned_alloc(16, lengthOfArray * sizeof(uint64_t));
 			for(uint64_t i = 0;i < lengthOfArray;i++)array[i] = 0;
 			
 			length = lengthOfArray;

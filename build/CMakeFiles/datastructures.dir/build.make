@@ -49,23 +49,23 @@ CMAKE_SOURCE_DIR = C:/Users/PhilippKroll/Desktop/compression
 CMAKE_BINARY_DIR = C:/Users/PhilippKroll/Desktop/compression/build
 
 # Include any dependencies generated for this target.
-include CMakeFiles/Lce.dir/depend.make
+include CMakeFiles/datastructures.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/Lce.dir/progress.make
+include CMakeFiles/datastructures.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/Lce.dir/flags.make
+include CMakeFiles/datastructures.dir/flags.make
 
-CMakeFiles/Lce.dir/requires:
+CMakeFiles/datastructures.dir/requires:
 
-.PHONY : CMakeFiles/Lce.dir/requires
+.PHONY : CMakeFiles/datastructures.dir/requires
 
-CMakeFiles/Lce.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/Lce.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/Lce.dir/clean
+CMakeFiles/datastructures.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/datastructures.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/datastructures.dir/clean
 
-CMakeFiles/Lce.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/Lce.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/Lce.dir/depend
+CMakeFiles/datastructures.dir/depend:
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/datastructures.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/datastructures.dir/depend
 

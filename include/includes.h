@@ -28,6 +28,8 @@
 	
 	#define cast64(x) (uint64_t(x))
 	
+	#define cast32(x) (uint32_t(x))
+	
 	#define cast128(x) (__uint128_t(x))
 #else
 	#include <malloc.h>
@@ -37,6 +39,9 @@
 	#define free(x) (_aligned_free(x))
 	
 	#define cast64(x) (((uint64_t)x))
+	
+	#define cast32(x) (((uint32_t)x))
+	
 	#define cast128(x) (((__uint128_t)x))
 #endif
 

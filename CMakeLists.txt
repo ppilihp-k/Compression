@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(LCEDATENSTRUKTUR CXX C)
+project(Datastructures CXX C)
 
 set(CMAKE_CXX_STANDARD 11)
 #-fopt-info-vec-missed
@@ -9,3 +9,8 @@ set(CMAKE_CXX_FLAGS " -pthread -O3 -std=c++11 -funroll-loops -mavx -march=native
 
 #include directories
 include_directories(include)
+
+add_subdirectory(source )
+
+#add_library(datastructures STATIC ${SRC})
+target_link_libraries(datastructures)

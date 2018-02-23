@@ -90,7 +90,7 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/LCEDATENSTRUKTUR
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Datastructures
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/GCC/bin/ld.exe
@@ -123,7 +123,7 @@ CMAKE_OBJCOPY:FILEPATH=C:/Program Files (x86)/GCC/bin/objcopy.exe
 CMAKE_OBJDUMP:FILEPATH=C:/Program Files (x86)/GCC/bin/objdump.exe
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=LCEDATENSTRUKTUR
+CMAKE_PROJECT_NAME:STATIC=Datastructures
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files (x86)/GCC/bin/ranlib.exe
@@ -181,16 +181,16 @@ CMAKE_STRIP:FILEPATH=C:/Program Files (x86)/GCC/bin/strip.exe
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-LCEDATENSTRUKTUR_BINARY_DIR:STATIC=C:/Users/PhilippKroll/Desktop/compression/build
+Datastructures_BINARY_DIR:STATIC=C:/Users/PhilippKroll/Desktop/compression/build
 
 //Value Computed by CMake
-LCEDATENSTRUKTUR_SOURCE_DIR:STATIC=C:/Users/PhilippKroll/Desktop/compression
+Datastructures_SOURCE_DIR:STATIC=C:/Users/PhilippKroll/Desktop/compression
 
 //Dependencies for target
-Lce_LIB_DEPENDS:STATIC=
+big_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
-compression_LIB_DEPENDS:STATIC=
+datastructures_LIB_DEPENDS:STATIC=
 
 
 ########################
@@ -287,7 +287,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

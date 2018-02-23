@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(CMAKE_COMMAND) -E cmake_progress_start C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles C:/Users/PhilippKroll/Desktop/compression/build/source/CMakeFiles/progress.marks
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f CMakeFiles/Makefile2 source/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f CMakeFiles/Makefile2 source/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,31 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f CMakeFiles/Makefile2 source/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f CMakeFiles/Makefile2 source/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named datastructures
+# Convenience name for target.
+source/CMakeFiles/datastructures.dir/rule:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/datastructures.dir/rule
+.PHONY : source/CMakeFiles/datastructures.dir/rule
 
-# Build rule for target.
-datastructures: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 datastructures
+# Convenience name for target.
+datastructures: source/CMakeFiles/datastructures.dir/rule
+
 .PHONY : datastructures
 
 # fast build rule for target.
 datastructures/fast:
-	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/build
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/build
 .PHONY : datastructures/fast
+
+array.obj: array.cpp.obj
+
+.PHONY : array.obj
+
+# target to build an object file
+array.cpp.obj:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/array.cpp.obj
+.PHONY : array.cpp.obj
+
+array.i: array.cpp.i
+
+.PHONY : array.i
+
+# target to preprocess a source file
+array.cpp.i:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/array.cpp.i
+.PHONY : array.cpp.i
+
+array.s: array.cpp.s
+
+.PHONY : array.s
+
+# target to generate assembly for a file
+array.cpp.s:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/array.cpp.s
+.PHONY : array.cpp.s
 
 # Help Target
 help:
@@ -129,9 +158,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... datastructures"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... datastructures"
+	@echo "... array.obj"
+	@echo "... array.i"
+	@echo "... array.s"
 .PHONY : help
 
 
@@ -143,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
