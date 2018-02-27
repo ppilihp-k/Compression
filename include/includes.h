@@ -16,6 +16,9 @@
 #include <unordered_map>
 #include <list>
 #include <functional>
+#include <string>
+#include <memory>
+#include <vector>
 
 #define DEBUG 1
 //#define SIMD 1

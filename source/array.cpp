@@ -2,7 +2,6 @@
 
 namespace ds 
 {
-	
 	Array::Array(uint32_t size, uint32_t tau)
 	{
 		uint32_t bitsize = size * tau;
@@ -107,7 +106,7 @@ namespace ds
 	}
 	Array2D& Array2D::operator=(const Array2D& other)
 	{
-				if(this == &other)return *this;
+		if(this == &other)return *this;
 		m_width = other.m_width;
 		m_height = other.m_height;
 		m_content = other.m_content;

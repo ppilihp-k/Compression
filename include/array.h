@@ -18,7 +18,8 @@ namespace ds
 		uint32_t m_length;
 		uint32_t m_numElements;
 		//__declspec(align(16)) uint32_t* m_content;
-		__attribute__(aligned(16)) uint32_t* m_content;
+		//__attribute__(aligned(16)) 
+		uint32_t* m_content;
 	public:
 		Array(uint32_t size, uint32_t tau);
 		Array();
