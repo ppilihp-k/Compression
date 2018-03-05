@@ -12,9 +12,29 @@ includes.h
 bitmanipulation.h
 ../include/bitmanipulation.h
 
+../include/binaryTree.h
+includes.h
+../include/includes.h
+array.h
+../include/array.h
+
 ../include/bitmanipulation.h
 includes.h
 ../include/includes.h
+
+../include/bitstring.h
+includes.h
+../include/includes.h
+bitmanipulation.h
+../include/bitmanipulation.h
+
+../include/graph.h
+includes.h
+../include/includes.h
+array.h
+../include/array.h
+bitstring.h
+../include/bitstring.h
 
 ../include/includes.h
 stdint.h
@@ -59,4 +79,16 @@ malloc.h
 C:/Users/PhilippKroll/Desktop/compression/source/array.cpp
 array.h
 C:/Users/PhilippKroll/Desktop/compression/source/array.h
+
+C:/Users/PhilippKroll/Desktop/compression/source/binaryTree.cpp
+binaryTree.h
+C:/Users/PhilippKroll/Desktop/compression/source/binaryTree.h
+
+C:/Users/PhilippKroll/Desktop/compression/source/bitstring.cpp
+bitstring.h
+C:/Users/PhilippKroll/Desktop/compression/source/bitstring.h
+
+C:/Users/PhilippKroll/Desktop/compression/source/graph.cpp
+graph.h
+C:/Users/PhilippKroll/Desktop/compression/source/graph.h
 

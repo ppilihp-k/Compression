@@ -6,3 +6,21 @@ source/CMakeFiles/datastructures.dir/array.cpp.obj: ../include/bitmanipulation.h
 source/CMakeFiles/datastructures.dir/array.cpp.obj: ../include/includes.h
 source/CMakeFiles/datastructures.dir/array.cpp.obj: ../source/array.cpp
 
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: ../include/array.h
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: ../include/binaryTree.h
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: ../include/bitmanipulation.h
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: ../include/includes.h
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: ../source/binaryTree.cpp
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: ../include/bitmanipulation.h
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: ../include/bitstring.h
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: ../include/includes.h
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: ../source/bitstring.cpp
+
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../include/array.h
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../include/bitmanipulation.h
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../include/bitstring.h
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../include/graph.h
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../include/includes.h
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../source/graph.cpp
+

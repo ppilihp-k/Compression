@@ -5,6 +5,18 @@
 
 namespace ds
 {	
+	static const uint32_t s_one = 1;
+	
+	static void setBit32(uint32_t i, bool value, uint32_t* array)
+	{
+		array[i / 32] |= (s_one << (i % 32));
+	}
+
+	static bool isBitSet32(uint32_t i, const uint32_t* array)
+	{
+		return array[i / 32] & (s_one << (i % 32));
+	}
+
 	 /**
 		NO TESTED
 		Description: 	Sets the i-th bit in array to a value of 0. If the array is to short, undefined behavior has to be expected.

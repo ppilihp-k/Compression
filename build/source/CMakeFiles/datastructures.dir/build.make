@@ -82,17 +82,98 @@ source/CMakeFiles/datastructures.dir/array.cpp.obj.provides: source/CMakeFiles/d
 source/CMakeFiles/datastructures.dir/array.cpp.obj.provides.build: source/CMakeFiles/datastructures.dir/array.cpp.obj
 
 
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: source/CMakeFiles/datastructures.dir/flags.make
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: source/CMakeFiles/datastructures.dir/includes_CXX.rsp
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj: ../source/binaryTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/datastructures.dir/binaryTree.cpp.obj -c C:/Users/PhilippKroll/Desktop/compression/source/binaryTree.cpp
+
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/datastructures.dir/binaryTree.cpp.i"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:/Users/PhilippKroll/Desktop/compression/source/binaryTree.cpp > CMakeFiles/datastructures.dir/binaryTree.cpp.i
+
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datastructures.dir/binaryTree.cpp.s"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:/Users/PhilippKroll/Desktop/compression/source/binaryTree.cpp -o CMakeFiles/datastructures.dir/binaryTree.cpp.s
+
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.requires:
+
+.PHONY : source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.requires
+
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.provides: source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.requires
+	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.provides.build
+.PHONY : source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.provides
+
+source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.provides.build: source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj
+
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: source/CMakeFiles/datastructures.dir/flags.make
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: source/CMakeFiles/datastructures.dir/includes_CXX.rsp
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj: ../source/bitstring.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object source/CMakeFiles/datastructures.dir/bitstring.cpp.obj"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/datastructures.dir/bitstring.cpp.obj -c C:/Users/PhilippKroll/Desktop/compression/source/bitstring.cpp
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/datastructures.dir/bitstring.cpp.i"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:/Users/PhilippKroll/Desktop/compression/source/bitstring.cpp > CMakeFiles/datastructures.dir/bitstring.cpp.i
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datastructures.dir/bitstring.cpp.s"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:/Users/PhilippKroll/Desktop/compression/source/bitstring.cpp -o CMakeFiles/datastructures.dir/bitstring.cpp.s
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.requires:
+
+.PHONY : source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.requires
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.provides: source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.requires
+	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.provides.build
+.PHONY : source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.provides
+
+source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.provides.build: source/CMakeFiles/datastructures.dir/bitstring.cpp.obj
+
+
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: source/CMakeFiles/datastructures.dir/flags.make
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: source/CMakeFiles/datastructures.dir/includes_CXX.rsp
+source/CMakeFiles/datastructures.dir/graph.cpp.obj: ../source/graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object source/CMakeFiles/datastructures.dir/graph.cpp.obj"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/datastructures.dir/graph.cpp.obj -c C:/Users/PhilippKroll/Desktop/compression/source/graph.cpp
+
+source/CMakeFiles/datastructures.dir/graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/datastructures.dir/graph.cpp.i"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:/Users/PhilippKroll/Desktop/compression/source/graph.cpp > CMakeFiles/datastructures.dir/graph.cpp.i
+
+source/CMakeFiles/datastructures.dir/graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datastructures.dir/graph.cpp.s"
+	cd C:/Users/PhilippKroll/Desktop/compression/build/source && "C:/Program Files (x86)/GCC/bin/g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:/Users/PhilippKroll/Desktop/compression/source/graph.cpp -o CMakeFiles/datastructures.dir/graph.cpp.s
+
+source/CMakeFiles/datastructures.dir/graph.cpp.obj.requires:
+
+.PHONY : source/CMakeFiles/datastructures.dir/graph.cpp.obj.requires
+
+source/CMakeFiles/datastructures.dir/graph.cpp.obj.provides: source/CMakeFiles/datastructures.dir/graph.cpp.obj.requires
+	$(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/graph.cpp.obj.provides.build
+.PHONY : source/CMakeFiles/datastructures.dir/graph.cpp.obj.provides
+
+source/CMakeFiles/datastructures.dir/graph.cpp.obj.provides.build: source/CMakeFiles/datastructures.dir/graph.cpp.obj
+
+
 # Object files for target datastructures
 datastructures_OBJECTS = \
-"CMakeFiles/datastructures.dir/array.cpp.obj"
+"CMakeFiles/datastructures.dir/array.cpp.obj" \
+"CMakeFiles/datastructures.dir/binaryTree.cpp.obj" \
+"CMakeFiles/datastructures.dir/bitstring.cpp.obj" \
+"CMakeFiles/datastructures.dir/graph.cpp.obj"
 
 # External object files for target datastructures
 datastructures_EXTERNAL_OBJECTS =
 
 source/libdatastructures.a: source/CMakeFiles/datastructures.dir/array.cpp.obj
+source/libdatastructures.a: source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj
+source/libdatastructures.a: source/CMakeFiles/datastructures.dir/bitstring.cpp.obj
+source/libdatastructures.a: source/CMakeFiles/datastructures.dir/graph.cpp.obj
 source/libdatastructures.a: source/CMakeFiles/datastructures.dir/build.make
 source/libdatastructures.a: source/CMakeFiles/datastructures.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libdatastructures.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:/Users/PhilippKroll/Desktop/compression/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libdatastructures.a"
 	cd C:/Users/PhilippKroll/Desktop/compression/build/source && $(CMAKE_COMMAND) -P CMakeFiles/datastructures.dir/cmake_clean_target.cmake
 	cd C:/Users/PhilippKroll/Desktop/compression/build/source && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/datastructures.dir/link.txt --verbose=$(VERBOSE)
 
@@ -102,6 +183,9 @@ source/CMakeFiles/datastructures.dir/build: source/libdatastructures.a
 .PHONY : source/CMakeFiles/datastructures.dir/build
 
 source/CMakeFiles/datastructures.dir/requires: source/CMakeFiles/datastructures.dir/array.cpp.obj.requires
+source/CMakeFiles/datastructures.dir/requires: source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj.requires
+source/CMakeFiles/datastructures.dir/requires: source/CMakeFiles/datastructures.dir/bitstring.cpp.obj.requires
+source/CMakeFiles/datastructures.dir/requires: source/CMakeFiles/datastructures.dir/graph.cpp.obj.requires
 
 .PHONY : source/CMakeFiles/datastructures.dir/requires
 

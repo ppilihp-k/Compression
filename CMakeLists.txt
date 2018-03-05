@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS " -pthread -O3 -std=c++11 -funroll-loops -mavx -march=native
 #include directories
 include_directories(include)
 
-add_subdirectory(source )
+add_subdirectory(source)
 
 #add_library(datastructures STATIC ${SRC})
 target_link_libraries(datastructures)

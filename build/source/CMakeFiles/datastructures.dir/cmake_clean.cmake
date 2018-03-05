@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/datastructures.dir/array.cpp.obj"
+  "CMakeFiles/datastructures.dir/binaryTree.cpp.obj"
+  "CMakeFiles/datastructures.dir/bitstring.cpp.obj"
+  "CMakeFiles/datastructures.dir/graph.cpp.obj"
   "libdatastructures.pdb"
   "libdatastructures.a"
 )

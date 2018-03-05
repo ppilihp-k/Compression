@@ -152,6 +152,87 @@ array.cpp.s:
 	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/array.cpp.s
 .PHONY : array.cpp.s
 
+binaryTree.obj: binaryTree.cpp.obj
+
+.PHONY : binaryTree.obj
+
+# target to build an object file
+binaryTree.cpp.obj:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/binaryTree.cpp.obj
+.PHONY : binaryTree.cpp.obj
+
+binaryTree.i: binaryTree.cpp.i
+
+.PHONY : binaryTree.i
+
+# target to preprocess a source file
+binaryTree.cpp.i:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/binaryTree.cpp.i
+.PHONY : binaryTree.cpp.i
+
+binaryTree.s: binaryTree.cpp.s
+
+.PHONY : binaryTree.s
+
+# target to generate assembly for a file
+binaryTree.cpp.s:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/binaryTree.cpp.s
+.PHONY : binaryTree.cpp.s
+
+bitstring.obj: bitstring.cpp.obj
+
+.PHONY : bitstring.obj
+
+# target to build an object file
+bitstring.cpp.obj:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/bitstring.cpp.obj
+.PHONY : bitstring.cpp.obj
+
+bitstring.i: bitstring.cpp.i
+
+.PHONY : bitstring.i
+
+# target to preprocess a source file
+bitstring.cpp.i:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/bitstring.cpp.i
+.PHONY : bitstring.cpp.i
+
+bitstring.s: bitstring.cpp.s
+
+.PHONY : bitstring.s
+
+# target to generate assembly for a file
+bitstring.cpp.s:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/bitstring.cpp.s
+.PHONY : bitstring.cpp.s
+
+graph.obj: graph.cpp.obj
+
+.PHONY : graph.obj
+
+# target to build an object file
+graph.cpp.obj:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/graph.cpp.obj
+.PHONY : graph.cpp.obj
+
+graph.i: graph.cpp.i
+
+.PHONY : graph.i
+
+# target to preprocess a source file
+graph.cpp.i:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/graph.cpp.i
+.PHONY : graph.cpp.i
+
+graph.s: graph.cpp.s
+
+.PHONY : graph.s
+
+# target to generate assembly for a file
+graph.cpp.s:
+	cd C:/Users/PhilippKroll/Desktop/compression/build && $(MAKE) -f source/CMakeFiles/datastructures.dir/build.make source/CMakeFiles/datastructures.dir/graph.cpp.s
+.PHONY : graph.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -164,6 +245,15 @@ help:
 	@echo "... array.obj"
 	@echo "... array.i"
 	@echo "... array.s"
+	@echo "... binaryTree.obj"
+	@echo "... binaryTree.i"
+	@echo "... binaryTree.s"
+	@echo "... bitstring.obj"
+	@echo "... bitstring.i"
+	@echo "... bitstring.s"
+	@echo "... graph.obj"
+	@echo "... graph.i"
+	@echo "... graph.s"
 .PHONY : help
 
 
