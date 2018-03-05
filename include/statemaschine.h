@@ -12,8 +12,10 @@ namespace ds
 	*	\class Diese Klasse repräsentiert einen Zustandsautomaten. T ist der Typparameter, dessen
 	*	Memberfunktionen als Callbacks bei einem Zustandsübergang verwendet werden, und die Elemente
 	*	der Klasse E stellen das Arbeitsalphabet dar, wobei jede Instanz von E ein Symbol ist.
+	*	Der Automat reräsentiert einen deterministischen Zustandsautomaten: Aus jedem Zustand kann es zu jedem Symbol nur genau eine Kante in einen 
+	*	Folgezustand geben.
 	*	Es gibt immer mindestens 2 Zustände. Einen Startzustand = 1 und einen Fehlerzustand = 0.
-	*	Grundsätzlich werden nicht eingetragene Paare (z,e) als Fehlerkante interpretiert.
+	*	Grundsätzlich werden nicht eingetragene Paare (z,e) als Kanten auf den aktuellen Zustand interpretiert.
 	*/
 	template<class T, class E>
 	class Statemaschine
@@ -130,10 +132,19 @@ namespace ds
 		{
 			//std::map<std::pair<uint32_t, E>, std::pair<uint32_t, t_memberFunc>> m_transitions;
 			std::map<std::pair<uint32_t, E>, std::pair<uint32_t, t_memberFunc>>::iterator it = m_transitions.find(std::make_pair(i, e));
-			m_transitions.erase(it);
-			m_transitions.insert(std::make_pair(std::make_pair(i, e), std::make_pair(j, nullptr)));
-			reset();
-			return true;
+			it = m_transitions.begin();
+			while (it != m_transitions.end())
+			{
+				if (it->second.first == j)
+				{
+					m_transitions.erase(it);
+					m_transitions.insert(std::make_pair(std::make_pair(i, e), std::make_pair(j, nullptr)));
+
+					reset();
+					return true;
+				}
+				it++;
+			}
 		}
 		else
 		{
@@ -151,10 +162,19 @@ namespace ds
 		{
 			//std::map<std::pair<uint32_t, E>, std::pair<uint32_t, t_memberFunc>> m_transitions;
 			std::map<std::pair<uint32_t, E>, std::pair<uint32_t, t_memberFunc>>::iterator it = m_transitions.find(std::make_pair(i, e));
-			m_transitions.erase(it);
-			m_transitions.insert(std::make_pair(std::make_pair(i, e), std::make_pair(j, handle)));
-			reset();
-			return true;
+			it = m_transitions.begin();
+			while (it != m_transitions.end())
+			{
+				if (it->second.first == j)
+				{
+					m_transitions.erase(it);
+					m_transitions.insert(std::make_pair(std::make_pair(i, e), std::make_pair(j, handle)));
+
+					reset();
+					return true;
+				}
+				it++;
+			}
 		}
 		else
 		{
@@ -171,7 +191,14 @@ namespace ds
 		if (m_graph.hasEdge(i, j))
 		{
 			std::map<std::pair<uint32_t, E>, std::pair<uint32_t, t_memberFunc>>::iterator it = m_transitions.find(std::make_pair(m_state, e));
-			m_transitions.erase(it);
+			if (it != m_transitions.end() && it->second.first == j)
+			{
+				m_transitions.erase(it);
+			}
+			else
+			{
+				return false;
+			}
 			reset();
 			return true;
 		}
@@ -240,7 +267,6 @@ namespace ds
 	{
 		return m_state;
 	}
-
 
 
 };
