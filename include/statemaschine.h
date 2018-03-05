@@ -4,6 +4,7 @@
 
 #include "includes.h"
 #include "graph.h"
+#include <set>
 
 namespace ds
 {
@@ -43,6 +44,9 @@ namespace ds
 		bool setHandle(uint32_t i, uint32_t j, E e, void (T::*handle)());
 		bool removeHandle(uint32_t i, uint32_t j, E symbol);
 		void setStartState(uint32_t i);
+		bool removeAcceptingState(uint32_t i);
+		bool addAcceptingState(uint32_t i);
+		bool isInAcceptingState() const;
 		void step(E symbol);
 		void reset();
 		uint32_t stateOf() const;
@@ -241,6 +245,38 @@ namespace ds
 	inline void Statemaschine<T, E>::setStartState(uint32_t i)
 	{
 		m_startState = i;
+	}
+	
+	template<class T, class E>
+	inline bool Statemaschine<T, E>::removeAcceptingState(uint32_t i)
+	{
+		std::set<uint32_t>::iterator it = m_acceptingStates.find(i);
+		if(it != m_acceptingStates.end())
+		{
+			m_acceptingStates.erase(it);
+			reset();
+			return true;
+		}
+		return false;
+	}
+
+	template<class T, class E>
+	inline bool Statemaschine<T, E>::addAcceptingState(uint32_t i)
+	{
+		std::set<uint32_t>::iterator it = m_acceptingStates.find(i);
+		if (it == m_acceptingStates.end())
+		{
+			m_acceptingStates.insert(i);
+			reset();
+			return true;
+		}
+		return false;
+	}
+
+	template<class T, class E>
+	inline bool Statemaschine<T, E>::isInAcceptingState() const
+	{
+		return m_acceptingStates.find(m_state) != m_acceptingStates.end();
 	}
 
 	template<class T, class E>
