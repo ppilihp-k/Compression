@@ -25,6 +25,7 @@ namespace ds
 	private:
 		Graphe m_graph;
 		std::map<std::pair<uint32_t, E>, std::pair<uint32_t, t_memberFunc>> m_transitions;
+		std::set<uint32_t> m_acceptingStates;
 		T* m_object;
 		uint32_t m_state;
 		uint32_t m_startState;
