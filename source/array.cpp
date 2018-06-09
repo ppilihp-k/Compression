@@ -2,15 +2,15 @@
 
 namespace ds 
 {
-	Array::Array(uint32_t size, uint32_t tau)
+	Array::Array(Integer size, Integer tau)
 	{
-		uint32_t bitsize = size * tau;
+		Integer bitsize = size * tau;
 		m_numElements = size;
-		uint32_t arrLength = (bitsize / 32) + 1;
-		m_content = (uint32_t*) aligned_alloc(16, arrLength * sizeof(uint32_t));
+		Integer arrLength = (bitsize / 32) + 1;
+		m_content = (Integer*)aligned_alloc(16, arrLength * sizeof(Integer));
 		m_length = arrLength;
-		#pragma loop count(m_length)
-		for (uint32_t i = 0; i < m_length; i++)m_content[i] = 0;
+#pragma loop count(m_length)
+		for (Integer i = 0; i < m_length; i++)m_content[i] = 0;
 		m_tau = tau;
 	}
 
@@ -37,10 +37,10 @@ namespace ds
 		if (this == &other)return *this;
 		m_tau = other.m_tau;
 		m_length = other.m_length;
-		m_content = new uint32_t[m_length];
+		m_content = new Integer[m_length];
 		m_numElements = other.m_numElements;
-		#pragma loop count(m_length)
-		for (uint32_t i = 0; i < m_length; i++)m_content[i] = other.m_content[i];
+#pragma loop count(m_length)
+		for (Integer i = 0; i < m_length; i++)m_content[i] = other.m_content[i];
 		return *this;
 	}
 
@@ -60,33 +60,40 @@ namespace ds
 		if (m_content)free(m_content);
 	}
 
-	uint32_t Array::operator[](uint32_t i) const
+	Integer Array::operator[](Integer i) const
 	{
-		if(m_content)return getBlock32(i * m_tau, m_tau, m_content);
+		//if (m_content)return getBlock32(i * m_tau, m_tau, m_content);
+		if (m_content)return getBlockSystem(i * m_tau, m_tau, m_content);
 		return 0;
 	}
 
-	void Array::set(uint32_t i, uint32_t value)
+	void Array::set(Integer i, Integer value)
 	{
-		if (m_content)setBlock32(i * m_tau, value, m_tau, m_content);
+		//if (m_content)setBlock32(i * m_tau, m_tau, value, m_content);
+		if (m_content)setBlockSystem(i * m_tau, m_tau, value, m_content);
 	}
 
-	uint32_t Array::get(uint32_t i) const
+	Integer Array::get(Integer i) const
 	{
 		return operator[](i);
 	}
 
-	uint32_t Array::length() const
+	Integer Array::length() const
 	{
 		return m_numElements;
 	}
 
-	uint32_t Array::tau() const
+	Integer Array::tau() const
 	{
 		return m_tau;
 	}
 
-	Array2D::Array2D(uint32_t width, uint32_t height, uint32_t tau)
+	Integer Array::byteSize() const
+	{
+		return 3 * sizeof(Integer) + sizeof(Integer*) + m_numElements * sizeof(Integer);
+	}
+
+	Array2D::Array2D(Integer width, Integer height, Integer tau)
 	{
 		m_content = Array(width * height, tau);
 		m_width = width;
@@ -94,7 +101,7 @@ namespace ds
 	}
 	Array2D::~Array2D()
 	{
-		
+
 	}
 	Array2D::Array2D(const Array2D& other)
 	{
@@ -106,7 +113,7 @@ namespace ds
 	}
 	Array2D& Array2D::operator=(const Array2D& other)
 	{
-		if(this == &other)return *this;
+		if (this == &other)return *this;
 		m_width = other.m_width;
 		m_height = other.m_height;
 		m_content = other.m_content;
@@ -114,30 +121,34 @@ namespace ds
 	}
 	Array2D& Array2D::operator=(Array2D&& other)
 	{
-		if(this == &other)return *this;
+		if (this == &other)return *this;
 		m_width = other.m_width;
 		m_height = other.m_height;
 		m_content = other.m_content;
 		return *this;
 	}
-	uint32_t Array2D::get(uint32_t i, uint32_t j) const
+	Integer Array2D::get(Integer i, Integer j) const
 	{
 		return m_content.get(j * m_width + i);
 	}
-	void Array2D::set(uint32_t i, uint32_t j, uint32_t val)
+	void Array2D::set(Integer i, Integer j, Integer val)
 	{
 		m_content.set(j * m_width + i, val);
 	}
-	uint32_t Array2D::width() const
+	Integer Array2D::width() const
 	{
 		return m_width;
 	}
-	uint32_t Array2D::height() const
+	Integer Array2D::height() const
 	{
 		return m_height;
 	}
-	uint32_t Array2D::tau() const
+	Integer Array2D::tau() const
 	{
 		return m_content.tau();
+	}
+	Integer Array2D::byteSize() const
+	{
+		return 2 * sizeof(Integer) + m_content.byteSize();
 	}
 };
