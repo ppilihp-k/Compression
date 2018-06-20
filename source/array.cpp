@@ -1,13 +1,14 @@
+#include "stdafx.h"
 #include "array.h"
 
-namespace ds 
+namespace ds
 {
-	Array::Array(Integer size, Integer tau)
+	Array::Array(Integer size, Integer tau)// : m_numElements(size), m_length(((size * tau) / (sizeof(Integer) * 8)) + 1), m_content((Integer*)aligned_alloc(16, (((size * tau) / (sizeof(Integer) * 8)) + 1) * sizeof(Integer)))
 	{
 		Integer bitsize = size * tau;
-		m_numElements = size;
-		Integer arrLength = (bitsize / 32) + 1;
-		m_content = (Integer*)aligned_alloc(16, arrLength * sizeof(Integer));
+		//Integer arrLength = (bitsize / 32) + 1;
+		Integer arrLength = (bitsize / (sizeof(Integer) * 8)) + 1;
+		//m_content = (Integer*)aligned_alloc(16, arrLength * sizeof(Integer));
 		m_length = arrLength;
 #pragma loop count(m_length)
 		for (Integer i = 0; i < m_length; i++)m_content[i] = 0;
