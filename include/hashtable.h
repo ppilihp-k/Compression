@@ -17,6 +17,8 @@ namespace ds
 		{
 		public:
 			Element() : m_key(0), m_value(nullptr) {};
+			Element(const Element& other) { *this = other; }
+			Element& operator=(const Element& other) { if (this == &other)return *this; m_key = other.m_kay; m_value = other.m_value; return *this; };
 			Integer m_key;
 			A* m_value;
 		};
@@ -25,6 +27,8 @@ namespace ds
 		Integer hash(Integer key) const { return key > t_size ? key % t_size : key; };
 	public:
 		Hashtable() : m_numberOfElements(0) {};
+		Hashtable(const Hashtable& other) { *this = other; };
+		Hashtable& operator=(const Hashtable& other) { if (this == &other)return *this; for (Integer i = 0; i < t_size; i++)m_content[i] = other.m_content[i]; m_numberOfElements = other.m_numberOfElements; return *this; };
 		T* find(Integer key) const;
 		bool containsKey(Integer key) const;
 		bool insert(Integer key, T* value);
