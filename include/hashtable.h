@@ -26,7 +26,7 @@ namespace ds
 		return res;
 	}
 
-	bool miillerTest(int d, int n)
+	static bool miillerTest(int d, int n)
 	{
 		// Pick a random number in [2..n-2]
 		// Corner cases make sure that n > 4
@@ -59,7 +59,7 @@ namespace ds
 	// It returns false if n is composite and returns true if n
 	// is probably prime.  k is an input parameter that determines
 	// accuracy level. Higher value of k indicates more accuracy.
-	bool isPrime(int n, int k)
+	static bool isPrime(int n, int k)
 	{
 		// Corner cases
 		if (n <= 1 || n == 4)  return false;
@@ -97,7 +97,7 @@ namespace ds
 		};
 		Integer m_numberOfElements;
 		Element<T> m_content[t_size];
-#if isPrime(t_size, PRIMETESTS) || (t_size % 2 == 0)
+#if isPrime(t_size, PRIMETESTS) || (t_size & Integer(1) == 0)
 		Integer h1(Integer key) const 
 		{
 			return key > t_size ? key % t_size : key;
@@ -106,16 +106,16 @@ namespace ds
 		Integer h2(Integer key) const
 		{
 
-#if isPrime(t_size, 10)
+#if isPrime(t_size, PRIMETESTS)
 			return Integer(1) + (key > t_size - 1 ? key % (t_size - 1) : key);
 #else 
 			Integer result = key > t_size ? key % t_size : key;
-			return result % 2 == 0 ? result + 1 : result;
+			return result & Integer(1) == 0 ? result + 1 : result;
 #endif		
 		};
 #endif	
 
-#if isPrime(t_size, PRIMETESTS) || (t_size % 2 == 0)
+#if isPrime(t_size, PRIMETESTS) || (t_size & Integer(1) == 0)
 		Integer hash(Integer key, Integer i) const { return (h1(key) + i * h2(key)) % t_size; };
 #else 
 		Integer hash(Integer key) const { return key % t_size; };
@@ -138,7 +138,7 @@ namespace ds
 		Integer i = 0;
 		while (i < t_size)
 		{
-#if isPrime(t_size, PRIMETESTS) || (t_size % 2 == 0)
+#if isPrime(t_size, PRIMETESTS) || (t_size & Integer(1) == 0)
 			h = hash(key, i); if (m_content[h].m_key == key)
 			{
 				return m_content[h].m_value;
@@ -151,7 +151,8 @@ namespace ds
 			}
 			else
 			{
-				h = (h + 1) % t_size;
+				h++;
+				h = h > t_size ? h % t_size : h;
 			}
 #endif
 			i++; 
@@ -171,7 +172,7 @@ namespace ds
 		{
 			Integer h;
 			Integer i = 0;
-#if isPrime(t_size, PRIMETESTS) || (t_size % 2 == 0)
+#if isPrime(t_size, PRIMETESTS) || (t_size & Integer(1) == 0)
 			while (i < t_size)
 			{
 				h = hash(key, i);
@@ -197,7 +198,8 @@ namespace ds
 				}
 				else
 				{
-					h = (h + 1) % t_size;
+					h++;
+					h = h > t_size ? h % t_size : h;
 				}
 				i++;
 			}
@@ -216,7 +218,7 @@ namespace ds
 		T* ptr = nullptr;
 		while (i < t_size) 
 		{ 
-#if isPrime(t_size, PRIMETESTS) || (t_size % 2 == 0)
+#if isPrime(t_size, PRIMETESTS) || (t_size & Integer(1) == 0)
 			h = hash(key, i);
 			if (m_content[h].m_key == key)
 			{
@@ -238,7 +240,8 @@ namespace ds
 			}
 			else
 			{
-				h = (h + 1) % t_size;
+				h++;
+				h = h > t_size ? h % t_size : h;
 			}
 #endif	
 			i++; 
