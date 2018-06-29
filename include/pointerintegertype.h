@@ -4,10 +4,10 @@
 
 #include "bitmanipulation.h"
 
-#define POINTERSIZE sizeof(void*)
-
 namespace ds
 {
+#define POINTERSIZE sizeof(void*)
+
 	//////////////////////////////////////////////////////////////////////////////////
 	// \brief Berechnet die Bits eines Pointertyps, die auf Grund von Datenausrichtungen
 	// ungenutzt bleiben. Die ungenutzten Bits befinden sich immer am "Ende" 
@@ -22,7 +22,7 @@ namespace ds
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static T* pointerIntegerType_getPointerContent(T* ptr) noexcept
+	constexpr static T* pointerIntegerType_getPointerContent(const T* ptr) noexcept
 	{
 		uint64_t mask = (~uint64_t(ds::createIntegerMask(freeBitsForType<T>())));
 		return (T*)(((uint64_t)ptr) & mask);
@@ -32,7 +32,7 @@ namespace ds
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static Integer pointerIntegerType_getIntegerContent(T* ptr) noexcept
+	constexpr static Integer pointerIntegerType_getIntegerContent(const T* ptr) noexcept
 	{
 		uint64_t mask = uint64_t(ds::createIntegerMask(freeBitsForType<T>()));
 		return ((uint64_t)ptr) & mask;
@@ -43,7 +43,7 @@ namespace ds
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static T* pointerIntegerType_getPointerContent(T* ptr) noexcept
+	constexpr static T* pointerIntegerType_getPointerContent(const T* ptr) noexcept
 	{
 		uint32_t mask = (~uint32_t(ds::createIntegerMask(freeBitsForType<T>())));
 		return (T*)(((uint32_t)ptr) & mask);
@@ -53,7 +53,7 @@ namespace ds
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static Integer pointerIntegerType_getIntegerContent(T* ptr) noexcept
+	constexpr static Integer pointerIntegerType_getIntegerContent(const T* ptr) noexcept
 	{
 		uint32_t mask = uint32_t(ds::createIntegerMask(freeBitsForType<T>()));
 		return ((uint32_t)ptr) & mask;
@@ -114,7 +114,7 @@ namespace ds
 		{
 			m_ptr = other.m_ptr
 		};
-		PointerIntegerType<T>& operator=(const PointerIntegerType<T>& other)
+		PointerIntegerType<T>& operator=(const PointerIntegerType<T>& other) noexcept
 		{
 			if (this == &other)return *this;
 			m_ptr = other.m_ptr;
@@ -128,17 +128,17 @@ namespace ds
 		// \brief Berechnet den codierten Integer-Wert.
 		// \return Integer - Integerwert der Datenstruktur.
 		//////////////////////////////////////////////////////////////////////////////////
-		Integer integerContent() { return pointerIntegerType_getIntegerContent(m_ptr); };
+		Integer integerContent() const noexcept { return pointerIntegerType_getIntegerContent(m_ptr); };
 		//////////////////////////////////////////////////////////////////////////////////
 		// \brief Berechnet den Pointer.
 		// \return T* - Pointer der Datenstruktur.
 		//////////////////////////////////////////////////////////////////////////////////
-		T* pointerContent() { return pointerIntegerType_getPointerContent(m_ptr); };
+		T* pointerContent()  const noexcept { return pointerIntegerType_getPointerContent(m_ptr); };
 		//////////////////////////////////////////////////////////////////////////////////
 		// \brief Gibt die Anzahl der fuer einen Integer nutzbaren Bits zurueck.
 		// \return Integer - Anzahl der nutzbaren Bits fuer einen Integer.
 		//////////////////////////////////////////////////////////////////////////////////
-		constexpr Integer freeBits() const { return freeBitsForType<T>(); };
+		constexpr Integer freeBits() const noexcept { return freeBitsForType<T>(); };
 	};
 };
 
