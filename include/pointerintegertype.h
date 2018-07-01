@@ -17,46 +17,62 @@ namespace ds
 	constexpr static Integer freeBitsForType() noexcept { return log2(alignof(A)); };
 
 #ifdef POINTERSIZE == 64
+	template<typename T>
+	constexpr static T* createPointerIntegerType(T* ptr, Integer i)
+	{
+		if(ptr == nullptr) return reinterpret_cast<T*>(i & ds::createIntegerMask(freeBitsForType<T>()));
+		uint64_t result = reinterpret_cast<uint64_t>(ptr) | i & ds::createIntegerMask(freeBitsForType<T>());
+		return reinterpret_cast<T*>(result);
+	};
 	//////////////////////////////////////////////////////////////////////////////////
 	// \brief Berechnet den Pointer aus der hybriden Datenstruktur.
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static T* pointerIntegerType_getPointerContent(const T* ptr) noexcept
+	constexpr static T* pointerIntegerType_getPointerContent(T* ptr) noexcept
 	{
 		uint64_t mask = (~uint64_t(ds::createIntegerMask(freeBitsForType<T>())));
-		return (T*)(((uint64_t)ptr) & mask);
+		uint64_t convptr = reinterpret_cast<uint64_t>(ptr);
+		return reinterpret_cast<T*>(convptr & mask);
 	};
 	//////////////////////////////////////////////////////////////////////////////////
 	// \brief Berechnet den Integerwert aus der hybriden Datenstruktur.
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static Integer pointerIntegerType_getIntegerContent(const T* ptr) noexcept
+	constexpr static Integer pointerIntegerType_getIntegerContent(T* ptr) noexcept
 	{
 		uint64_t mask = uint64_t(ds::createIntegerMask(freeBitsForType<T>()));
-		return ((uint64_t)ptr) & mask;
+		return reinterpret_cast<uint64_t>(ptr) & mask;
 	};
 #elif POINTERSIZE == 32
+	template<typename T>
+	constexpr static T* createPointerIntegerType(T* ptr, Integer i)
+	{
+		if (ptr == nullptr) return reinterpret_cast<T*>(i & ds::createIntegerMask(freeBitsForType<T>()));
+		uint32_t result = reinterpret_cast<uint32_t>(ptr) | i & ds::createIntegerMask(freeBitsForType<T>());
+		return reinterpret_cast<T*>(result);
+	};
 	//////////////////////////////////////////////////////////////////////////////////
 	// \brief Berechnet den Pointer aus der hybriden Datenstruktur.
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static T* pointerIntegerType_getPointerContent(const T* ptr) noexcept
+	constexpr static T* pointerIntegerType_getPointerContent(T* ptr) noexcept
 	{
 		uint32_t mask = (~uint32_t(ds::createIntegerMask(freeBitsForType<T>())));
-		return (T*)(((uint32_t)ptr) & mask);
+		uint32_t convptr = reinterpret_cast<uint32_t>(ptr);
+		return reinterpret_cast<T*>(convptr & mask);
 	};
 	//////////////////////////////////////////////////////////////////////////////////
 	// \brief Berechnet den Integerwert aus der hybriden Datenstruktur.
 	// Siehe PointerIntegerType-Beschreibung.
 	//////////////////////////////////////////////////////////////////////////////////
 	template<typename T>
-	constexpr static Integer pointerIntegerType_getIntegerContent(const T* ptr) noexcept
+	constexpr static Integer pointerIntegerType_getIntegerContent(T* ptr) noexcept
 	{
 		uint32_t mask = uint32_t(ds::createIntegerMask(freeBitsForType<T>()));
-		return ((uint32_t)ptr) & mask;
+		return reinterpret_cast<uint32_t>(ptr) & mask;
 	};
 #else 
 #error Pointergroesse ist nicht passend!
@@ -93,8 +109,7 @@ namespace ds
 		//////////////////////////////////////////////////////////////////////////////////
 		PointerIntegerType(T* ptrcontent, Integer integercontent)
 		{
-			uint64_t convptr = (uint64_t)ptrcontent;
-			m_ptr = (T*)(convptr | (integercontent & ds::createIntegerMask(freeBits())));
+			m_ptr = createPointerIntegerType<T>(ptrcontent, integercontent);
 		};
 		//////////////////////////////////////////////////////////////////////////////////
 		// \brief Erstellt einen PointerIntegerType mit Pointer.
@@ -108,7 +123,7 @@ namespace ds
 		//////////////////////////////////////////////////////////////////////////////////
 		PointerIntegerType(Integer integercontent)
 		{
-			m_ptr = (T*)(integercontent & ds::createIntegerMask(freeBits()));
+			m_ptr = createPointerIntegerType<T>(nullptr, integercontent);
 		};
 		PointerIntegerType(const PointerIntegerType<T>& other)
 		{
