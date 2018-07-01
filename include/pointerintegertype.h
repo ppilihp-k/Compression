@@ -154,6 +154,13 @@ namespace ds
 		// \return Integer - Anzahl der nutzbaren Bits fuer einen Integer.
 		//////////////////////////////////////////////////////////////////////////////////
 		constexpr Integer freeBits() const noexcept { return freeBitsForType<T>(); };
+		//////////////////////////////////////////////////////////////////////////////////
+		// \brief Gibt die das Maximum des Wertebereichs des zur verfuegung stehenden
+		// Integerteils zurueck.
+		// \return Integer - [0,...,max] Der Maximalwert, den ein Integer in dieser Datenstruktur
+		// annehmen kann.
+		//////////////////////////////////////////////////////////////////////////////////
+		constexpr Integer maxIntegerValue() const noexcept { return pow(Integer(2), freeBitsForType<T>()) - Integer(1); };
 	};
 };
 
