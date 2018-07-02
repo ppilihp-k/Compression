@@ -92,6 +92,11 @@ namespace ds
 	#define IntegerInverseShiftTable s_inverseShiftTable32
 #endif
 
+	static Integer createIntegerMask(Integer length)
+	{
+		return IntegerMaskTable[length];
+	};
+
 	static void setBit32(uint32_t i, bool value, uint32_t* array)
 	{
 		//array[i / 32] |= (s_one32 << (i % 32));
@@ -293,62 +298,68 @@ namespace ds
 	}
 
 	template<Integer t_length>
-	static void setBlockEnv(Integer i, Integer block, Integer* array)
+	static void setBlockEnvPow2(Integer i, Integer block, Integer* array)
 	{
-#if t_length > IntegerBitSize
-#error Laenge darf die vom System vorgegebenen Bitbreite nicht ueberschreiten!
-#endif
-
-#if (t_length == IntegerBitSize)
-		return array[i];
-#else 
+		static_assert(t_length % 2 == 0);
 		Integer index_start = i / IntegerBitSize;
 		Integer shift = i & modmask;
 		Integer mask = IntegerMaskTable[t_length];
-	#if((t_length % 2) == 0)
-			array[index_start] &= (~(mask << shift));
-			array[index_start] |= (block << shift);
-	#else 
-			Integer index_end = (i + t_length - Integer(1)) / IntegerBitSize;
+		array[index_start] &= (~(mask << shift));
+		array[index_start] |= (block << shift);
+	}
 
-			array[index_start] &= (~(mask << shift));
-			array[index_start] |= (block << shift);
+	template<Integer t_length>
+	static void setBlockEnv(Integer i, Integer block, Integer* array)
+	{
+		Integer index_start = i / IntegerBitSize;
+		Integer shift = i & modmask;
+		Integer mask = IntegerMaskTable[t_length];
+		Integer index_end = (i + t_length - Integer(1)) / IntegerBitSize;
 
-			if (index_start != index_end)
-			{
-				array[index_end] &= ~(mask >> IntegerInverseShiftTable[shift]);
-				array[index_end] |= block >> (IntegerInverseShiftTable[shift]);
-			}
-	#endif
-#endif
+		array[index_start] &= (~(mask << shift));
+		array[index_start] |= (block << shift);
+
+		if (index_start != index_end)
+		{
+			array[index_end] &= ~(mask >> IntegerInverseShiftTable[shift]);
+			array[index_end] |= block >> (IntegerInverseShiftTable[shift]);
+		}
+	}
+
+	template<Integer t_length>
+	static void setBlockEnvMaxLength(Integer i, Integer block, Integer* array)
+	{
+		return array[i];
+	}
+
+	template<Integer t_length>
+	static Integer getBlockEnvPow2(Integer i, const Integer* array) 
+	{
+		Integer start = i / IntegerBitSize;
+		Integer shift = i & modmask;
+		return (array[start] >> shift) & IntegerMaskTable[t_length];
+	}
+
+	template<Integer t_length>
+	static Integer getBlockEnvMaxLength(Integer i, const Integer* array) 
+	{ 
+		return array[i]; 
 	}
 
 	template<Integer t_length>
 	static Integer getBlockEnv(Integer i, const Integer* array)
 	{
-#if t_length > IntegerBitSize
-#error Laenge darf die vom System vorgegebenen Bitbreite nicht ueberschreiten!
-#endif
-
-#if (t_length == IntegerBitSize)
-		return array[i];
-#else 
 		Integer start = i / IntegerBitSize;
 		Integer shift = i & modmask;
-	#if (t_length % 2 == 0)
-			return (array[start] >> shift) & IntegerMaskTable[t_length];
-	#else 
-			Integer end = (i + t_length - Integer(1)) / IntegerBitSize;
+		Integer end = (i + t_length - Integer(1)) / IntegerBitSize;
 
-			Integer lo = array[start] >> shift;
-			Integer hi = Integer(0);
-			if (start != end)
-			{
-				hi = array[end] << (IntegerInverseShiftTable[shift]);
-			}
-			return (hi | lo) & IntegerMaskTable[t_length];
-	#endif
-#endif
+		Integer lo = array[start] >> shift;
+		Integer hi = Integer(0);
+		if (start != end)
+		{
+			hi = array[end] << (IntegerInverseShiftTable[shift]);
+		}
+		return (hi | lo) & IntegerMaskTable[t_length];
 	}
 
 	/*-- DEPRECATED -- Use "getBlockEnv" instead!!*/
